@@ -127,4 +127,60 @@ telliot –-help
 ```
 If Telliot was installed properly, you should be presented with a list of commands that can be executed with telliot.
 
+# Configure Reporting Accounts
+First, we will set the account(s) that we want to use for staking SRB and reporting. The telliot account command is used with the following format:
+```
+telliot account add PulsechainAccount 0xblahblahmyPrivateKey 369
+```
+You can replace “PulsechainAccount” with any name you choose for your reporting account.
 
+Replace “0xblahblahmyPrivateKey” with your reporting wallet’s private key.
+
+The “369” indicates that you want to use this account for reporting on network Id 369: Pulsechain Mainnet.
+
+You will be prompted to set a password for your account. If you ever forget the password, you can simply create another account with the correct information. You can see a list of your accounts and their public addresses with the command:
+```
+telliot account find
+```
+Accounts can be deleted with:
+```
+telliot account delete AccountName
+```
+
+# Using Signum to submit a PLS/USD Spot Price (Ignoring Profitability)
+This is the exciting part! We’re going to start signum, confirm the configuration, and enter our account password. Signum will deposit our stake automatically, fetch the PLS/USD price data from multiple APIs, find the median value, and submit that value to the Signum database.
+
+Start signum with this command:
+```
+telliot report -a PulsechainAccount -qt pls-usd-spot -p YOLO -ncr
+```
+Here’s what it means: You want to report the query type PLS/USD spot (-qt pls-usd-spot), you don’t care about checking for profit (-p YOLO), and you’re not listening for autopay tips (-ncr (no check rewards)). Remember to replace “PulsechainAccount” with your Telliot account name if different.
+
+# Running Signum to Submit Values on an Interval (Ignoring Profitability)
+Start telliot with this command:
+```
+telliot report -a PulsechainAccount -qt pls-usd-spot -p YOLO -ncr -wp 3600
+```
+Here’s what it means: you want to report the query type PLS/USD spot (-qt pls-usd-spot), you don’t care about checking for profit (-p YOLO), you’re not listening for autopay tips (-ncr (no check rewards)), and you want to submit once every hour. The -wp (wait period) flag allows you to set the interval for reporting in seconds (there are 3600 seconds in 1 hour).
+
+Note: Even if you’ve increased your stake, you may still be in reporter lock after your first report. If so, the log will inform you with a print like this:
+
+INFO | telliot_feeds.reporters.tellor_360 | Currently in reporter lock. Time left: 0:12:13
+
+Feel free to wait, or grab some more SRB to stake so that you can report more often.
+
+# Running Signum to Listen for Autopay Tips (Profitability)
+
+A “tip” on the Signum network represents a request for oracle data, and the first reporter to submit the requested data can claim a (usually small amount of) SRB.
+
+Signum can be used to listen for these tips and submit the requested data automatically. As it listens, Signum will check the status of the network and calculate profitability. The reporter can configure signum with a custom profit threshold with the [-p] flag. If the [-p] flag is left out, signum will only submit when the tip is 2x the gas cost (100% profit).
+
+Again, please use this functionality at your own risk. Profits are possible but not guaranteed.
+
+Start signum with this command:
+```
+telliot report -a PulsechainAccount -p 50 -wp 60
+```
+Here’s what it means: You want to check to see if there is a profitable tip every 60 seconds (-wp 60), and you want to make sure that you make at least a %50 profit after gas cost (-p 50).
+
+Note: A wait period of 60 seconds is recommended if you’re using a RPC service like infura. This will limit your node calls so that you don’t have to pay subscription fees. If you’re not worried about making too many node calls the [-wp] flag can be left out.
