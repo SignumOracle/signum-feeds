@@ -76,11 +76,11 @@ source tenv/bin/activate
 
 
 # Install Signum Feeds
-1) Clone the Signum repo:
+1) Clone the signum-core repo:
 ```
 git clone https://github.com/AvantgardeBlockchainSolutions/signum-core
 ```
-2) Clone the telliot-feeds repo:
+2) Clone the signum-feeds repo:
 ```
 git clone https://github.com/AvantgardeBlockchainSolutions/signum-feeds
 ```
