@@ -121,6 +121,11 @@ telliot config init
 ```
 nano telliot/endpoints.yaml
 ```
+Please note: Windows users using WSL and tenv, your endpoints.yaml file will be located in the root of your disk.
+```
+cd /home/yourusername
+nano telliot/endpoints.yaml
+```
 
 Use the arrow keys to navigate the document and edit the mainnet node endpoint URL to match your own. Signum requires that you configure at least the Pulsechain mainnet endpoint for its functionality. (You may add endpoints for other networks also if you have those ready.)
 If you make a mistake, exit the document with [ctrl+x]  [n] (don’t save changes) and press enter to confirm. Then open the document and start editing again.
