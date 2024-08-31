@@ -100,7 +100,7 @@ pip install -e .
 ```
 5) Change directory to the signum core folder with
 ```
-cd
+cd..
 ```
 and then
 ```
