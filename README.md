@@ -3,10 +3,10 @@
 This package contains reporting tools and datafeeds for Signum oracle.
 
 # Contracts
-[SignumFlex](https://scan.9mm.pro/address/0x25baEbFAc231836bd5AFd1F211f6E8306f2BCC1e?tab=contract)
-[Autopay](https://scan.9mm.pro/address/0x5CBcA25A8CD90d7b80Ba40a67E40E4D027738743?tab=contract)
-[Governance](https://scan.9mm.pro/address/0x7F0c51a9dC0AAf30247dEb14C696BF7e75a6C139?tab=contract)
-[SignumToken](https://scan.9mm.pro/address/0x410a1Cb708e0724d1f9013EE31945E5E3F978a44?tab=contract)
+-[SignumFlex](https://scan.9mm.pro/address/0x25baEbFAc231836bd5AFd1F211f6E8306f2BCC1e?tab=contract)
+-[Autopay](https://scan.9mm.pro/address/0x5CBcA25A8CD90d7b80Ba40a67E40E4D027738743?tab=contract)
+-[Governance](https://scan.9mm.pro/address/0x7F0c51a9dC0AAf30247dEb14C696BF7e75a6C139?tab=contract)
+-[SignumToken](https://scan.9mm.pro/address/0x410a1Cb708e0724d1f9013EE31945E5E3F978a44?tab=contract)
 
 # How to Install Signum
 This is a step by step guide for how to install Signum Feeds using the command line. Signum Feeds is an open source client based on a fork of Tellor’s Telliot Feeds for interacting with the Signum oracle. The methods outlined here were confirmed on a fresh installation of Ubuntu 20.04 LTS. Individual commands will differ with other environments (particularly for installing python 3.9), but the process is relatively similar for setting up Telliot on Mac (requires homebrew). You may use powershell if you’re familiar with using python on windows or use WSL (ubuntu 20.04) for better compatibility with this guide.
