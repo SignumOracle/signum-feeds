@@ -1,6 +1,6 @@
 # Signum Feeds
 
-This package contains reporting tools and datafeeds for Signum oracle.
+This package contains reporting tools and datafeeds for Signum Oracle.
 
 # Contracts
 - [SignumFlex](https://scan.9mm.pro/address/0x25baEbFAc231836bd5AFd1F211f6E8306f2BCC1e?tab=contract)
