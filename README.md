@@ -195,3 +195,139 @@ telliot report -a PulsechainAccount -p 50 -wp 60
 Here’s what it means: You want to check to see if there is a profitable tip every 60 seconds (-wp 60), and you want to make sure that you make at least a %50 profit after gas cost (-p 50).
 
 Note: A wait period of 60 seconds is recommended if you’re using a RPC service like infura. This will limit your node calls so that you don’t have to pay subscription fees. If you’re not worried about making too many node calls the [-wp] flag can be left out.
+
+# Running Signum Conditionally
+Report new price only when price change is over a percentage threshold:
+```
+telliot conditional -a PulsechainAccount -qt pls-usd-spot -pc 0.001
+```
+Here's what it means: You want to report conditionally the pls-usd spot price, but only if the percent change (-pc) is greater than 0.10%.
+
+Report new price whenever the current price is 24 hours old:
+```
+telliot conditional -a PulsechainAccount -qt pls-usd-spot -st 86400
+```
+
+# Report Commands
+```
+Options:
+  -a, --account TEXT              Name of account used for reporting, staking,
+                                  etc. More info: run `telliot account --help`
+                                  [required]
+  -u, --unsafe / -sf, --safe      Disables config confirmation prompts
+  -gl, --gas-limit INTEGER        use custom gas limit
+  -mf, --max-fee FLOAT            use custom maxFeePerGas (gwei)
+  -pf, --priority-fee FLOAT       use custom maxPriorityFeePerGas (gwei)
+  -bf, --base-fee FLOAT           use custom baseFeePerGas (gwei)
+  -gp, --gas-price INTEGER        use custom legacy gasPrice (gwei)
+  -pwd, --password TEXT
+  -tx, --tx-type TEXT             choose transaction type (0 for legacy txs, 2
+                                  for EIP-1559)
+  -mnb, --min-native-token-balance FLOAT
+                                  Minimum native token balance required to
+                                  report. Denominated in ether.
+  -gm, --gas-multiplier INTEGER   increase gas price for legacy transaction by
+                                  this percentage (default 1%) ie 5 = 5%
+  -mpfr, --max-priority-fee-range INTEGER
+                                  the maximum range of priority fees to use in
+                                  gwei (default 3 gwei)
+  -qt, --query-tag [trb-usd-spot|ohm-eth-spot|vsq-usd-spot|bct-usd-spot|dai-usd-spot|ric-usd-spot|idle-usd-spot|mkr-usd-spot|sushi-usd-spot|matic-usd-spot|usdc-usd-spot|gas-price-oracle-example|eur-usd-spot|snapshot-proposal-example|eth-usd-30day_volatility|numeric-api-response-example|diva-protocol-example|string-query-example|pls-usd-spot|eth-usd-spot|btc-usd-spot|tellor-rng-example|twap-eth-usd-example|ampleforth-uspce|ampleforth-custom|albt-usd-spot|rai-usd-spot|xdai-usd-spot|eth-btc-spot|evm-call-example|avax-usd-spot|aave-usd-spot|badger-usd-spot|bch-usd-spot|comp-usd-spot|crv-usd-spot|doge-usd-spot|dot-usd-spot|eul-usd-spot|fil-usd-spot|gno-usd-spot|link-usd-spot|ltc-usd-spot|shib-usd-spot|uni-usd-spot|usdt-usd-spot|yfi-usd-spot|mimicry-crypto-coven-tami|mimicry-nft-index-usd|mimicry-nft-index-eth|mimicry-mashup-example|steth-btc-spot|steth-usd-spot|reth-btc-spot|reth-usd-spot|wsteth-usd-spot|wsteth-eth-spot|op-usd-spot|grt-usd-spot|cny-usd-spot|eth-jpy-spot|brl-usd-spot|corn-usd-custom|rice-usd-custom|wheat-usd-custom|soy-usd-custom|ousd-usd-spot|oeth-eth-spot|wld-usd-spot|sweth-usd-spot|diva-usd-spot|cbeth-usd-spot|wbeth-usd-spot|oeth-usd-spot|pyth-usd-spot|ogv-eth-spot|brc20-ordi-usd-spot|meth-usd-spot|wbtc-usd-spot|mnt-usd-spot|usdy-usd-spot|wmnt-usd-spot|btc-bal-example|btc-bal-current-example|evm-bal-example|evm-bal-current-example|primeeth-eth-spot|usdm-usd-spot|wusdm-usd-spot|sdai-usd-spot|sfrax-usd-spot|frax-usd-spot|gyd-usd-spot|leth-usd-spot|frxeth-usd-spot|filecid-query-example|ezeth-usd-spot|weeth-usd-spot|wrseth-usd-spot|rseth-usd-spot|mode-usd-spot|tlos-usd-spot|tara-usd-spot]
+                                  select datafeed using query tag
+  -wp, --wait-period INTEGER      wait period between feed suggestion calls
+  --submit-once / --submit-continuous
+  -s, --stake FLOAT               ❗Telliot will automatically stake more TRB
+                                  if your stake is below or falls below the
+                                  stake amount required to report. If you
+                                  would like to stake more than required,
+                                  enter the TOTAL stake amount you wish to be
+                                  staked. For example, if you wish to stake
+                                  1000 TRB, enter 1000.
+  -cr, --check-rewards / -ncr, --no-check-rewards
+                                  If the --no-rewards-check flag is set, the
+                                  reporter will not check profitability or
+                                  available tips for the datafeed unless the
+                                  user has not selected a query tag or used
+                                  the random feeds flag.
+  -p, --profit TEXT               lower threshold (inclusive) for expected
+                                  percent profit
+  --skip-manual-feeds BOOLEAN     skip feeds that require manual value input
+                                  when listening to tips
+  -b, --build-feed                build a datafeed from a query type and query
+                                  parameters
+  -rngts, --rng-timestamp INTEGER
+                                  timestamp for Tellor RNG
+  -dpt, --diva-protocol BOOLEAN   Report & settle DIVA Protocol derivative
+                                  pools
+  -dda, --diva-diamond-address TEXT
+                                  DIVA Protocol contract address
+  -dma, --diva-middleware-address TEXT
+                                  DIVA Protocol middleware contract address
+  -custom-token, --custom-token-contract TEXT
+                                  Address of custom token contract
+  -custom-oracle, --custom-oracle-contract TEXT
+                                  Address of custom oracle contract
+  -custom-autopay, --custom-autopay-contract TEXT
+                                  Address of custom autopay contract
+  -rf, --random-feeds / -nrf, --no-random-feeds
+                                  Reporter will use a random datafeed from the
+                                  catalog.
+  --rng-auto / --rng-auto-off
+  -spwd, --signature-password TEXT
+  --ignore-tbr / --include-tbr    optionaly ignore time based rewards in
+                                  profit calculations. relevant only on eth-
+                                  mainnet/eth-testnets
+  -sa, --signature-account TEXT   Name of signature account used for reporting
+                                  with Flashbots.
+  --help                          Show this message and exit.
+```
+
+# Conditional Commands
+```
+Options:
+  -a, --account TEXT              Name of account used for reporting, staking,
+                                  etc. More info: run `telliot account --help`
+                                  [required]
+  -u, --unsafe / -sf, --safe      Disables config confirmation prompts
+  -gl, --gas-limit INTEGER        use custom gas limit
+  -mf, --max-fee FLOAT            use custom maxFeePerGas (gwei)
+  -pf, --priority-fee FLOAT       use custom maxPriorityFeePerGas (gwei)
+  -bf, --base-fee FLOAT           use custom baseFeePerGas (gwei)
+  -gp, --gas-price INTEGER        use custom legacy gasPrice (gwei)
+  -pwd, --password TEXT
+  -tx, --tx-type TEXT             choose transaction type (0 for legacy txs, 2
+                                  for EIP-1559)
+  -mnb, --min-native-token-balance FLOAT
+                                  Minimum native token balance required to
+                                  report. Denominated in ether.
+  -gm, --gas-multiplier INTEGER   increase gas price for legacy transaction by
+                                  this percentage (default 1%) ie 5 = 5%
+  -mpfr, --max-priority-fee-range INTEGER
+                                  the maximum range of priority fees to use in
+                                  gwei (default 3 gwei)
+  -qt, --query-tag [trb-usd-spot|ohm-eth-spot|vsq-usd-spot|bct-usd-spot|dai-usd-spot|ric-usd-spot|idle-usd-spot|mkr-usd-spot|sushi-usd-spot|matic-usd-spot|usdc-usd-spot|gas-price-oracle-example|eur-usd-spot|snapshot-proposal-example|eth-usd-30day_volatility|numeric-api-response-example|diva-protocol-example|string-query-example|pls-usd-spot|eth-usd-spot|btc-usd-spot|tellor-rng-example|twap-eth-usd-example|ampleforth-uspce|ampleforth-custom|albt-usd-spot|rai-usd-spot|xdai-usd-spot|eth-btc-spot|evm-call-example|avax-usd-spot|aave-usd-spot|badger-usd-spot|bch-usd-spot|comp-usd-spot|crv-usd-spot|doge-usd-spot|dot-usd-spot|eul-usd-spot|fil-usd-spot|gno-usd-spot|link-usd-spot|ltc-usd-spot|shib-usd-spot|uni-usd-spot|usdt-usd-spot|yfi-usd-spot|mimicry-crypto-coven-tami|mimicry-nft-index-usd|mimicry-nft-index-eth|mimicry-mashup-example|steth-btc-spot|steth-usd-spot|reth-btc-spot|reth-usd-spot|wsteth-usd-spot|wsteth-eth-spot|op-usd-spot|grt-usd-spot|cny-usd-spot|eth-jpy-spot|brl-usd-spot|corn-usd-custom|rice-usd-custom|wheat-usd-custom|soy-usd-custom|ousd-usd-spot|oeth-eth-spot|wld-usd-spot|sweth-usd-spot|diva-usd-spot|cbeth-usd-spot|wbeth-usd-spot|oeth-usd-spot|pyth-usd-spot|ogv-eth-spot|brc20-ordi-usd-spot|meth-usd-spot|wbtc-usd-spot|mnt-usd-spot|usdy-usd-spot|wmnt-usd-spot|btc-bal-example|btc-bal-current-example|evm-bal-example|evm-bal-current-example|primeeth-eth-spot|usdm-usd-spot|wusdm-usd-spot|sdai-usd-spot|sfrax-usd-spot|frax-usd-spot|gyd-usd-spot|leth-usd-spot|frxeth-usd-spot|filecid-query-example|ezeth-usd-spot|weeth-usd-spot|wrseth-usd-spot|rseth-usd-spot|mode-usd-spot|tlos-usd-spot|tara-usd-spot]
+                                  select datafeed using query tag
+  -wp, --wait-period INTEGER      wait period between feed suggestion calls
+  --submit-once / --submit-continuous
+  -s, --stake FLOAT               ❗Telliot will automatically stake more TRB
+                                  if your stake is below or falls below the
+                                  stake amount required to report. If you
+                                  would like to stake more than required,
+                                  enter the TOTAL stake amount you wish to be
+                                  staked. For example, if you wish to stake
+                                  1000 TRB, enter 1000.
+  -cr, --check-rewards / -ncr, --no-check-rewards
+                                  If the --no-rewards-check flag is set, the
+                                  reporter will not check profitability or
+                                  available tips for the datafeed unless the
+                                  user has not selected a query tag or used
+                                  the random feeds flag.
+  -p, --profit TEXT               lower threshold (inclusive) for expected
+                                  percent profit
+  --skip-manual-feeds BOOLEAN     skip feeds that require manual value input
+                                  when listening to tips
+  -pc, --percent-change FLOAT     Price change percentage for triggering a
+                                  report. Default=0.01 (1%)
+  -st, --stale-timeout INTEGER    Triggers a report when the oracle value is
+                                  stale. Default=85500 (23.75 hours)
+  --help                          Show this message and exit.
+```
