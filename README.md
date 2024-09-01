@@ -165,10 +165,10 @@ Start signum with this command:
 ```
 telliot report -a PulsechainAccount -qt pls-usd-spot -p YOLO -ncr
 ```
-Here’s what it means: You want to report the query type PLS/USD spot (-qt pls-usd-spot), you don’t care about checking for profit (-p YOLO), and you’re not listening for autopay tips (-ncr (no check rewards)). Remember to replace “PulsechainAccount” with your Telliot account name if different.
+Here’s what it means: You want to report the query type PLS/USD spot (-qt pls-usd-spot), you don’t care about checking for profit (-p YOLO), and you’re not listening for autopay tips (-ncr (no check rewards)). Remember to replace “PulsechainAccount” with your Signum account name if different.
 
 # Running Signum to Submit Values on an Interval (Ignoring Profitability)
-Start telliot with this command:
+Start Signum with this command:
 ```
 telliot report -a PulsechainAccount -qt pls-usd-spot -p YOLO -ncr -wp 3600
 ```
@@ -188,7 +188,7 @@ Signum can be used to listen for these tips and submit the requested data automa
 
 Again, please use this functionality at your own risk. Profits are possible but not guaranteed.
 
-Start signum with this command:
+Start Signum with this command:
 ```
 telliot report -a PulsechainAccount -p 50 -wp 60
 ```
@@ -197,13 +197,15 @@ Here’s what it means: You want to check to see if there is a profitable tip ev
 Note: A wait period of 60 seconds is recommended if you’re using a RPC service like infura. This will limit your node calls so that you don’t have to pay subscription fees. If you’re not worried about making too many node calls the [-wp] flag can be left out.
 
 # Running Signum Conditionally
-Report new price only when price change is over a percentage threshold:
+Report new price only when price change is over a percentage threshold.
+Start Signum with this command:
 ```
 telliot conditional -a PulsechainAccount -qt pls-usd-spot -pc 0.001
 ```
 Here's what it means: You want to report conditionally the pls-usd spot price, but only if the percent change (-pc) is greater than 0.10%.
 
-Report new price whenever the current price is 24 hours old:
+Report new price whenever the current price is 24 hours old.
+Start Signum with this command:
 ```
 telliot conditional -a PulsechainAccount -qt pls-usd-spot -st 86400
 ```
