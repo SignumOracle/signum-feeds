@@ -84,11 +84,11 @@ source tenv/bin/activate
 # Install Signum Feeds
 1) Clone the signum-core repo:
 ```
-git clone https://github.com/AvantgardeBlockchainSolutions/signum-core
+git clone https://github.com/SignumOracle/signum-core
 ```
 2) Clone the signum-feeds repo:
 ```
-git clone https://github.com/AvantgardeBlockchainSolutions/signum-feeds
+git clone https://github.com/SignumOracle/signum-feeds
 ```
 3) Change directory (cd) into the signum-feeds folder that you just downloaded:
 ```
