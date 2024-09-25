@@ -206,6 +206,59 @@ Accounts can be deleted with:
 telliot account delete AccountName
 ```
 
+# Update Signum Feeds
+
+1. Delete Existing signum-feeds and signum-core directories
+
+```
+rm -r signum-core
+```
+```
+rm -r signum-feeds
+```
+
+2. Clone the signum-core repo:
+
+```
+git clone https://github.com/SignumOracle/signum-core
+```
+
+3. Clone the signum-feeds repo:
+
+```
+git clone https://github.com/SignumOracle/signum-feeds
+```
+
+4. Change directory (cd) into the signum-feeds folder that you just downloaded:
+
+```
+cd signum-feeds
+```
+
+5. Install signum-feeds with the command:
+
+```
+pip install -e .
+```
+
+6. Change directory to the signum core folder with
+
+```
+cd ..
+```
+
+and then
+
+```
+cd signum-core
+```
+
+7. Install signum-core with the command:
+
+```
+pip install -e .
+```
+
 # Using Signum to submit a PLS/USD Spot Price (Ignoring Profitability)
 
 This is the exciting part! We’re going to start signum, confirm the configuration, and enter our account password. Signum will deposit our stake automatically, fetch the PLS/USD price data from multiple APIs, find the median value, and submit that value to the Signum database.
