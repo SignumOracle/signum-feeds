@@ -62,7 +62,7 @@ async def test_source():
     assert t is not None
     assert isinstance(v, bytes)
     assert isinstance(t, int)
-    assert decode_single("uint256", v) > 2390472032948139443578988  # an earlier total supply of TRB
+    assert decode_single("uint256", v) > 2390472032948139443578988  # an earlier total supply of STB
 
     # test fetch_new_datapoint
     v, t = await s2.fetch_new_datapoint()

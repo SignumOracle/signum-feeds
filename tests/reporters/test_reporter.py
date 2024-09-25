@@ -6,7 +6,7 @@ from telliot_core.utils.response import ResponseStatus
 from web3.contract import Contract
 
 from telliot_feeds.feeds import matic_usd_median_feed
-from telliot_feeds.feeds import trb_usd_median_feed
+from telliot_feeds.feeds import stb_usd_median_feed
 from telliot_feeds.reporters.tellor_360 import Tellor360Reporter
 from telliot_feeds.reporters.types import StakerInfo
 
@@ -145,13 +145,13 @@ async def test_staking_after_a_reporter_slashing(tellor_flex_reporter, caplog):
         "get_staker_details",
         return_value=(StakerInfo(0, 0, 0, 0, 0, 0, 0, 0, True), ResponseStatus()),
     ):
-        trb_balance, status = await r.get_current_token_balance()
+        stb_balance, status = await r.get_current_token_balance()
         known_stake, status = await r.ensure_staked()
         assert known_stake
         assert status.ok
         assert "Your staked balance has decreased, account might be in dispute" in caplog.text
-        trb_balance2, status = await r.get_current_token_balance()
-        assert trb_balance2 < trb_balance
+        stb_balance2, status = await r.get_current_token_balance()
+        assert stb_balance2 < stb_balance
 
 
 @pytest.mark.asyncio
@@ -160,7 +160,7 @@ async def test_stake_info(tellor_flex_reporter, guaranteed_price_source, chain):
     r: Tellor360Reporter = tellor_flex_reporter
     feed = matic_usd_median_feed
     feed.source = guaranteed_price_source
-    trb_usd_median_feed.source = guaranteed_price_source
+    stb_usd_median_feed.source = guaranteed_price_source
     r.expected_profit = "YOLO"
     r.datafeed = feed
     with patch.object(Tellor360Reporter, "check_reporter_lock", return_value=ResponseStatus()):

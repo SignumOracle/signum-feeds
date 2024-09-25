@@ -138,10 +138,10 @@ def test_diva_protocol_invalid_chain():
 def test_cmd_tip():
     """Test CLI tip command"""
     runner = CliRunner()
-    trb = "0.00001"
-    result = runner.invoke(cli_main, ["--test_config", "tip", "--amount-usd", trb])
+    stb = "0.00001"
+    result = runner.invoke(cli_main, ["--test_config", "tip", "--amount-usd", stb])
 
-    expected = "Error: No such option: --amount-usd Did you mean --amount-trb?"
+    expected = "Error: No such option: --amount-usd Did you mean --amount-stb?"
 
     assert expected in result.output
 

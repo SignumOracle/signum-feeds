@@ -101,7 +101,7 @@ from telliot_feeds.feeds.tara_usd_feed import tara_usd_median_feed
 from telliot_feeds.feeds.tellor_rng_feed import tellor_rng_feed
 from telliot_feeds.feeds.tellor_rng_manual_feed import tellor_rng_manual_feed
 from telliot_feeds.feeds.tlos_usd_feed import tlos_usd_median_feed
-from telliot_feeds.feeds.trb_usd_feed import trb_usd_median_feed
+from telliot_feeds.feeds.stb_usd_feed import stb_usd_median_feed
 from telliot_feeds.feeds.twap_manual_feed import twap_30d_example_manual_feed
 from telliot_feeds.feeds.twap_manual_feed import twap_manual_feed
 from telliot_feeds.feeds.uni_usd_feed import uni_usd_median_feed
@@ -122,6 +122,26 @@ from telliot_feeds.feeds.wsteth_feed import wsteth_usd_median_feed
 from telliot_feeds.feeds.wusdm_usd_feed import wusdm_usd_feed
 from telliot_feeds.feeds.xdai_usd_feed import xdai_usd_median_feed
 from telliot_feeds.feeds.yfi_usd_feed import yfi_usd_median_feed
+from telliot_feeds.feeds.inc_usd_feed import inc_usd_median_feed
+from telliot_feeds.feeds.plsx_usd_feed import plsx_usd_median_feed
+from telliot_feeds.feeds.tetrap_usd_feed import tetrap_usd_median_feed
+from telliot_feeds.feeds.phex_usd_feed import phex_usd_median_feed
+from telliot_feeds.feeds.daipulsechain_usd_feed import daipulsechain_usd_median_feed
+from telliot_feeds.feeds.solidx_usd_feed import solidx_usd_median_feed
+from telliot_feeds.feeds.plsp_usd_feed import plsp_usd_median_feed
+from telliot_feeds.feeds.spark_usd_feed import spark_usd_median_feed
+from telliot_feeds.feeds.axis_usd_feed import axis_usd_median_feed
+from telliot_feeds.feeds.watt_usd_feed import watt_usd_median_feed
+from telliot_feeds.feeds.cst_usd_feed import cst_usd_median_feed
+from telliot_feeds.feeds.phux_usd_feed import phux_usd_median_feed
+from telliot_feeds.feeds.texan_usd_feed import texan_usd_median_feed
+from telliot_feeds.feeds.bnb_usd_feed import bnb_usd_median_feed
+from telliot_feeds.feeds.xrp_usd_feed import xrp_usd_median_feed
+from telliot_feeds.feeds.hex_usd_feed import hex_usd_median_feed
+from telliot_feeds.feeds.hedron_usd_feed import hedron_usd_median_feed
+from telliot_feeds.feeds.paxg_usd_feed import paxg_usd_median_feed
+from telliot_feeds.feeds.kinesissilver_usd_feed import kinesissilver_usd_median_feed
+from telliot_feeds.feeds.gramplatinum_usd_feed import gramplatinum_usd_median_feed
 
 CATALOG_FEEDS: Dict[str, DataFeed[Any]] = {
     "ampleforth-custom": ampl_usd_vwap_feed,
@@ -149,7 +169,7 @@ CATALOG_FEEDS: Dict[str, DataFeed[Any]] = {
     "pls-usd-spot": pls_usd_median_feed,
     "eth-usd-spot": eth_usd_median_feed,
     "btc-usd-spot": btc_usd_median_feed,
-    "trb-usd-spot": trb_usd_median_feed,
+    "stb-usd-spot": stb_usd_median_feed,
     "albt-usd-spot": albt_usd_median_feed,
     "rai-usd-spot": rai_usd_median_feed,
     "xdai-usd-spot": xdai_usd_median_feed,
@@ -226,6 +246,26 @@ CATALOG_FEEDS: Dict[str, DataFeed[Any]] = {
     "rseth-usd-spot": rseth_usd_median_feed,
     "tlos-usd-spot": tlos_usd_median_feed,
     "tara-usd-spot": tara_usd_median_feed,
+    "plsx-usd-spot": plsx_usd_median_feed,
+    "inc-usd-spot": inc_usd_median_feed,
+    "tetrap-usd-spot": tetrap_usd_median_feed,
+    "phex-usd-spot": phex_usd_median_feed,
+    "daipulsechain-usd-spot": daipulsechain_usd_median_feed,
+    "solidx-usd-spot": solidx_usd_median_feed,
+    "plsp-usd-spot": plsp_usd_median_feed,
+    "spark-usd-spot": spark_usd_median_feed,
+    "axis-usd-spot": axis_usd_median_feed,
+    "watt-usd-spot": watt_usd_median_feed,
+    "cst-usd-spot": cst_usd_median_feed,
+    "phux-usd-spot": phux_usd_median_feed,
+    "texan-usd-spot": texan_usd_median_feed,
+    "bnb-usd-spot": bnb_usd_median_feed,
+    "xrp-usd-spot": xrp_usd_median_feed,
+    "hex-usd-spot": hex_usd_median_feed,
+    "hedron-usd-spot": hedron_usd_median_feed,
+    "paxg-usd-spot": paxg_usd_median_feed,
+    "kinesissilver-usd-spot": kinesissilver_usd_median_feed,
+    "gramplatinum-usd-spot": gramplatinum_usd_median_feed,
 }
 
 DATAFEED_BUILDER_MAPPING: Dict[str, DataFeed[Any]] = {

@@ -17,7 +17,7 @@ from telliot_feeds.feeds.btc_usd_feed import btc_usd_median_feed
 from telliot_feeds.feeds.eth_usd_feed import eth_usd_median_feed
 from telliot_feeds.feeds.matic_usd_feed import matic_usd_median_feed
 from telliot_feeds.feeds.snapshot_feed import snapshot_manual_feed
-from telliot_feeds.feeds.trb_usd_feed import trb_usd_median_feed
+from telliot_feeds.feeds.stb_usd_feed import stb_usd_median_feed
 from telliot_feeds.reporters.rewards.time_based_rewards import get_time_based_rewards
 from telliot_feeds.reporters.tellor_360 import Tellor360Reporter
 from telliot_feeds.utils.log import get_logger
@@ -60,10 +60,10 @@ async def test_report(tellor_360, caplog, guaranteed_price_source, mock_flex_con
     mock_token_contract.approve(mock_flex_contract.address, mock_flex_contract.stakeAmount())
     mock_flex_contract.depositStake(mock_flex_contract.stakeAmount())
     mock_flex_contract.submitValue(
-        trb_usd_median_feed.query.query_id,
+        stb_usd_median_feed.query.query_id,
         "0x0000000000000000000000000000000000000000000000004563918244f40000",
         0,
-        trb_usd_median_feed.query.query_data,
+        stb_usd_median_feed.query.query_data,
     )
     chain.sleep(86400)
     mock_flex_contract.updateStakeAmount()
@@ -82,10 +82,10 @@ async def test_report(tellor_360, caplog, guaranteed_price_source, mock_flex_con
     mock_token_contract.approve(mock_flex_contract.address, mock_flex_contract.stakeAmount())
     mock_flex_contract.depositStake(mock_flex_contract.stakeAmount())
     mock_flex_contract.submitValue(
-        trb_usd_median_feed.query.query_id,
+        stb_usd_median_feed.query.query_id,
         "0x00000000000000000000000000000000000000000000021e19e0c9bab2400000",
         0,
-        trb_usd_median_feed.query.query_data,
+        stb_usd_median_feed.query.query_data,
     )
     chain.sleep(86400)
     mock_flex_contract.updateStakeAmount()
@@ -553,7 +553,7 @@ async def test_reset_datafeed(tellor_flex_reporter):
         account=r.account,
         chain_id=80001,
         transaction_type=0,
-        datafeed=CATALOG_FEEDS["trb-usd-spot"],
+        datafeed=CATALOG_FEEDS["stb-usd-spot"],
         min_native_token_balance=0,
     )
     reporter2 = Tellor360Reporter(
@@ -578,7 +578,7 @@ async def test_reset_datafeed(tellor_flex_reporter):
         for _ in range(3):
             await reporter1.report_once()
             assert reporter1.qtag_selected is True
-            assert reporter1.datafeed.query.asset == "trb"
+            assert reporter1.datafeed.query.asset == "stb"
             chain.sleep(43201)
 
         for _ in range(3):

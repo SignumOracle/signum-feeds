@@ -1,8 +1,8 @@
 STAKE_MESSAGE = (
-    "\U00002757Telliot will automatically stake more TRB "
+    "\U00002757Telliot will automatically stake more STB "
     "if your stake is below or falls below the stake amount required to report.\n"
     "If you would like to stake more than required, enter the TOTAL stake amount you wish to be staked.\n"
-    "For example, if you wish to stake 1000 TRB, enter 1000.\n"
+    "For example, if you wish to stake 1000 STB, enter 1000.\n"
 )
 REWARDS_CHECK_MESSAGE = (
     "If the --no-rewards-check flag is set, the reporter will not check profitability or\n"

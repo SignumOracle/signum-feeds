@@ -51,7 +51,7 @@ async def test_one_time_tips_only(setup_one_time_tips, caplog):
 @pytest.mark.asyncio
 async def test_fetching_tips(tip_feeds_and_one_time_tips):
     """Test fetching tips when there are both feed tips and single tips
-    A one time tip of 24 TRB exists autopay and plus 1 TRB in a feed
+    A one time tip of 24 STB exists autopay and plus 1 STB in a feed
     its the highest so it should be the suggested query"""
     flex = await tip_feeds_and_one_time_tips
     datafeed, tip = await get_feed_and_tip(flex.autopay, skip_manual_feeds=False)

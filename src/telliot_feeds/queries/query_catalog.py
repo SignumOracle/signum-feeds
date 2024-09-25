@@ -33,7 +33,26 @@ query_catalog = Catalog()
 # Query Catalog Entries
 # --------------------------------------------------------------------------------------
 
-query_catalog.add_entry(tag="trb-usd-spot", title="TRB/USD spot price", q=SpotPrice(asset="trb", currency="usd"))
+query_catalog.add_entry(tag="stb-usd-spot", title="STB/USD spot price", q=SpotPrice(asset="stb", currency="usd"))
+query_catalog.add_entry(tag="plsx-usd-spot", title="PLSX/USD spot price", q=SpotPrice(asset="plsx", currency="usd"))
+query_catalog.add_entry(tag="inc-usd-spot", title="INC/USD spot price", q=SpotPrice(asset="inc", currency="usd"))
+query_catalog.add_entry(tag="phex-usd-spot", title="PHEX/USD spot price", q=SpotPrice(asset="phex", currency="usd"))
+query_catalog.add_entry(tag="daipulsechain-usd-spot", title="DAIPULSECHAIN/USD spot price", q=SpotPrice(asset="dai-pulsechain", currency="usd"))
+query_catalog.add_entry(tag="solidx-usd-spot", title="SOLIDX/USD spot price", q=SpotPrice(asset="solidx", currency="usd"))
+query_catalog.add_entry(tag="plsp-usd-spot", title="PLSP/USD spot price", q=SpotPrice(asset="plsp", currency="usd"))
+query_catalog.add_entry(tag="spark-usd-spot", title="SPARK/USD spot price", q=SpotPrice(asset="spark", currency="usd"))
+query_catalog.add_entry(tag="axis-usd-spot", title="AXIS/USD spot price", q=SpotPrice(asset="axis", currency="usd"))
+query_catalog.add_entry(tag="watt-usd-spot", title="WATT/USD spot price", q=SpotPrice(asset="watt", currency="usd"))
+query_catalog.add_entry(tag="cst-usd-spot", title="CST/USD spot price", q=SpotPrice(asset="cst", currency="usd"))
+query_catalog.add_entry(tag="phux-usd-spot", title="PHUX/USD spot price", q=SpotPrice(asset="phux", currency="usd"))
+query_catalog.add_entry(tag="texan-usd-spot", title="TEXAN/USD spot price", q=SpotPrice(asset="texan", currency="usd"))
+query_catalog.add_entry(tag="bnb-usd-spot", title="BNB/USD spot price", q=SpotPrice(asset="bnb", currency="usd"))
+query_catalog.add_entry(tag="xrp-usd-spot", title="XRP/USD spot price", q=SpotPrice(asset="xrp", currency="usd"))
+query_catalog.add_entry(tag="hex-usd-spot", title="HEX/USD spot price", q=SpotPrice(asset="hex", currency="usd"))
+query_catalog.add_entry(tag="hedron-usd-spot", title="HEDRON/USD spot price", q=SpotPrice(asset="hedron", currency="usd"))
+query_catalog.add_entry(tag="paxg-usd-spot", title="PAXG/USD spot price", q=SpotPrice(asset="paxg", currency="usd"))
+query_catalog.add_entry(tag="kinesissilver-usd-spot", title="KINESIS-SILVER/USD spot price", q=SpotPrice(asset="kinesissilver", currency="usd"))
+query_catalog.add_entry(tag="gramplatinum-usd-spot", title="GRAM-PLATINUM/USD spot price", q=SpotPrice(asset="gramplatinum", currency="usd"))
 
 query_catalog.add_entry(
     tag="ohm-eth-spot",

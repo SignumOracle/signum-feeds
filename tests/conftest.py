@@ -176,11 +176,11 @@ def mock_flex_contract(mock_token_contract):
         mock_token_contract.address,
         43200,  # 12 hours reporting lock
         Web3.toWei(100, "ether"),  # $100 stake amount dollar target
-        Web3.toWei(15, "ether"),  # $15 staking token current price
-        Web3.toWei(10, "ether"),  # 10 TRB minimum stake amount
+        Web3.toWei(0.01, "ether"),  # $0.01 staking token current price
+        Web3.toWei(75000, "ether"),  # 10 STB minimum stake amount
         HexBytes(
             "0x5c13cd9c97dbb98f2429c101a2a8150e6c7a0ddaff6124ee176a3a411067ded0"
-        ),  # TRB/USD staking token price query id
+        ),  # STB/USD staking token price query id
     )
 
 

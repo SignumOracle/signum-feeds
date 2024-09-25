@@ -86,7 +86,7 @@ async def test_coinbase():
     v, t = await get_price("btc", "usd", service["coinbase"])
     validate_price(v, t)
 
-    v, t = await get_price("trb", "usd", service["coinbase"])
+    v, t = await get_price("stb", "usd", service["coinbase"])
     validate_price(v, t)
 
 
@@ -235,7 +235,7 @@ async def test_coingecko_price_service_rate_limit(caplog):
 
     with mock.patch("telliot_feeds.sources.price.spot.coingecko.WebPriceService.get_url", side_effect=mock_get_url):
         ps = CoinGeckoSpotPriceService(timeout=0.5)
-        v, dt = await ps.get_price("trb", "usd")
+        v, dt = await ps.get_price("stb", "usd")
 
         assert v is None
         assert dt is None

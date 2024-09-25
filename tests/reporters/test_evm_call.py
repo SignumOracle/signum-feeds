@@ -72,8 +72,8 @@ async def test_evm_call_e2e(tellor_360, caplog):
     v, t = q.value_type.decode(value)
     assert isinstance(v, bytes)
     assert isinstance(t, int)
-    trb_total_supply = decode_single("uint256", v)
-    assert trb_total_supply > 2390472032948139443578988  # TRB total supply before
+    stb_total_supply = decode_single("uint256", v)
+    assert stb_total_supply > 2390472032948139443578988  # STB total supply before
 
 
 @pytest.mark.asyncio

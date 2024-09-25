@@ -5,7 +5,7 @@ from telliot_feeds.queries.evm_call import EVMCall
 
 def test_evm_call_constructor():
     """Validate EVMCall query."""
-    # Chain ID, address, and calldata for retrieving total supply of TRB on Ethereum mainnet
+    # Chain ID, address, and calldata for retrieving total supply of STB on Ethereum mainnet
     q = EVMCall(
         chainId=1,
         contractAddress="0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0",
