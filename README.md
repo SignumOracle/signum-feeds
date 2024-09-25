@@ -259,6 +259,7 @@ cd signum-core
 ```
 pip install -e .
 ```
+Any pre-existing accounts that were setup previously, will still be available to use. You do not need to add your reporter accounts again.
 
 # Using Signum to submit a PLS/USD Spot Price (Ignoring Profitability)
 
