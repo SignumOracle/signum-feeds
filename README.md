@@ -213,6 +213,7 @@ telliot account delete AccountName
 ```
 rm -r signum-core
 ```
+and then
 ```
 rm -r signum-feeds
 ```
