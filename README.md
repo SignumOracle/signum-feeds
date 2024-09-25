@@ -208,7 +208,12 @@ telliot account delete AccountName
 
 # Update Signum Feeds
 
-1. Delete Existing signum-feeds and signum-core directories
+1. Ensure you have activated the python venv environment:
+```
+source tenv/bin/activate
+```
+
+2. Delete Existing signum-feeds and signum-core directories
 
 ```
 rm -r signum-core
@@ -218,31 +223,31 @@ and then
 rm -r signum-feeds
 ```
 
-2. Clone the signum-core repo:
+3. Clone the signum-core repo:
 
 ```
 git clone https://github.com/SignumOracle/signum-core
 ```
 
-3. Clone the signum-feeds repo:
+4. Clone the signum-feeds repo:
 
 ```
 git clone https://github.com/SignumOracle/signum-feeds
 ```
 
-4. Change directory (cd) into the signum-feeds folder that you just downloaded:
+5. Change directory (cd) into the signum-feeds folder that you just downloaded:
 
 ```
 cd signum-feeds
 ```
 
-5. Install signum-feeds with the command:
+6. Install signum-feeds with the command:
 
 ```
 pip install -e .
 ```
 
-6. Change directory to the signum core folder with
+7. Change directory to the signum core folder with
 
 ```
 cd ..
@@ -254,7 +259,7 @@ and then
 cd signum-core
 ```
 
-7. Install signum-core with the command:
+8. Install signum-core with the command:
 
 ```
 pip install -e .
